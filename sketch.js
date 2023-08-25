@@ -1,21 +1,28 @@
 //crie as variaveis dos seus personagens aqui
 var box;
-var DJ
+var DJ;
+var p1;
 
 function preload() {
   //carregue as imagens dos personagens aqui
 }
 
 function setup() {
-  canvas= createCanvas(900, 900);
+  canvas = createCanvas(900, 900);
   canvas.center()
   paredes()
+  
   DJ = createSprite(510, 20, 20, 20);
   DJ.shapeColor = "red";
+
+
+
 }
 
 function draw() {
   background("black");
+
+  perguntas()
 
   box35.rotationSpeed = 6;
   box36.rotationSpeed = 6;
@@ -29,17 +36,17 @@ function draw() {
   box57.rotationSpeed = 4;
   box58.rotationSpeed = 4;
 
-  if(keyDown("w")){
-    DJ.y-=2
+  if (keyDown("w")) {
+    DJ.y -= 2
   }
-  if(keyDown("s")){
-    DJ.y+=2
+  if (keyDown("s")) {
+    DJ.y += 2
   }
-  if(keyDown("a")){
-    DJ.x-=2
+  if (keyDown("a")) {
+    DJ.x -= 2
   }
-  if(keyDown("d")){
-    DJ.x+=2
+  if (keyDown("d")) {
+    DJ.x += 2
   }
   drawSprites();
 }
@@ -234,6 +241,13 @@ function paredes() {
 
 }
 
-function perguntas(){
-  
+function perguntas() {
+  p1 = createSprite(100, 50, 20, 60);
+  p1.shapeColor = "yellow";
+  //p1.visible = false;
+
+  if (DJ.isTouching(p1)) {
+      alert("tocou")
+      DJ.x+=25;
+  }
 }
